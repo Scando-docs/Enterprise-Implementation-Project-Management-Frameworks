@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risk Management Framework | Implementation Methodology</title>
+    <link rel="stylesheet" href="language.css">
+    <script src="language.js" defer></script>
     <style>
         :root {
             --primary: #0f172a; /* Slate 900 */
@@ -61,15 +63,21 @@
         @media print { body { background: white; } .container { padding: 0; } header { background: white; color: black; } .card { border: none; box-shadow: none; break-inside: avoid; } }
     </style>
 </head>
-<body>
+<body data-page="risk">
     <div class="container">
-        <nav class="site-nav" aria-label="التنقل الرئيسي">
+        <nav class="site-nav" aria-label="Main navigation">
             <a class="brand" href="index.html" aria-label="Scando Integrated Solutions"><img src="Scando.png" alt="Scando Integrated Solutions"></a>
-            <div class="nav-links" dir="rtl">
-                <a href="index.html" lang="ar">الرئيسية</a>
-                <a href="change_management_framework.html" lang="ar">إدارة التغيير</a>
-                <a href="issue_management_framework.html" lang="ar">إدارة المشكلات</a>
-                <a href="risk_management_framework.html" lang="ar">إدارة المخاطر</a>
+            <div class="site-nav-controls">
+                <div class="nav-links">
+                    <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+                    <a href="change_management_framework.html" data-en="Change Management" data-ar="إدارة التغيير">Change Management</a>
+                    <a href="issue_management_framework.html" data-en="Issue Management" data-ar="إدارة المشكلات">Issue Management</a>
+                    <a href="risk_management_framework.html" data-en="Risk Management" data-ar="إدارة المخاطر">Risk Management</a>
+                </div>
+                <div class="language-switch" role="group" aria-label="Language">
+                    <button type="button" data-language="en" aria-pressed="true">EN</button>
+                    <button type="button" data-language="ar" aria-pressed="false">العربية</button>
+                </div>
             </div>
         </nav>
         <header>

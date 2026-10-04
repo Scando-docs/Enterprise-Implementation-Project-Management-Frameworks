@@ -1,0 +1,116 @@
+html[lang="ar"] body {
+    direction: rtl;
+    text-align: right;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.site-nav {
+    direction: ltr;
+}
+
+html[lang="ar"] .site-nav {
+    direction: rtl;
+}
+
+.site-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.language-switch {
+    display: inline-flex;
+    flex: none;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #f1f5f9;
+    direction: ltr;
+}
+
+.language-switch button {
+    min-width: 56px;
+    padding: 6px 9px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #334155;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.language-switch button[aria-pressed="true"] {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+}
+
+.language-switch button:focus-visible,
+.nav-links a:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+html[lang="ar"] .nav-links a {
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+html[lang="ar"] .step {
+    border-right: 4px solid var(--primary, var(--secondary));
+    border-left: 0;
+}
+
+html[lang="ar"] .step-number {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+html[lang="ar"] .scenario-box {
+    border-right: 4px solid var(--secondary);
+    border-left: 0;
+    border-radius: 8px 0 0 8px;
+}
+
+html[lang="ar"] th,
+html[lang="ar"] td {
+    text-align: right;
+}
+
+html[lang="ar"] .matrix-table th,
+html[lang="ar"] .matrix-table td {
+    text-align: center;
+}
+
+html[lang="ar"] .lifecycle {
+    direction: rtl;
+}
+
+html[lang="ar"] .email-template-container pre {
+    direction: rtl;
+    text-align: right;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+html[lang="ar"] .copy-btn {
+    right: auto;
+    left: 1rem;
+}
+
+html[lang="ar"] .grid-2 ul {
+    margin-right: 1.5rem !important;
+    margin-left: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        flex-wrap: wrap;
+    }
+
+    .site-nav-controls {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
