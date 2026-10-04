@@ -11,14 +11,14 @@
 
     const translations = {
         home: {
-            "Project Governance Frameworks": "أطر حوكمة المشاريع",
-            "Practical, responsive, and implementation-ready governance templates designed for enterprise projects, transformation initiatives, ERP rollouts, CRM programs, and complex delivery environments.": "قوالب حوكمة عملية ومتجاوبة وجاهزة للتطبيق، صُممت لمشاريع المؤسسات ومبادرات التحول وتطبيق أنظمة ERP وCRM وبيئات التنفيذ المعقدة.",
+            "Project Governance Frameworks": "طرق الحوكمة المشروع",
+            "covering Change Management, Issue Management, and Risk Management—ensuring controlled scope adjustments, structured issue resolution, and proactive risk monitoring throughout the project lifecycle.": "تغطي إدارة التغيير وإدارة المشكلات وإدارة المخاطر—لضمان تعديلات النطاق المُحكمة وحل المشكلات بشكل منظم ومراقبة المخاطر بشكل استباقي طوال دورة حياة المشروع.",
             "Standardized workflow for handling scope changes, impact assessments, approvals, schedule updates, and budget control.": "سير عمل موحّد لمعالجة تغييرات النطاق، وتقييم الأثر، والحصول على الموافقات، وتحديث الجداول الزمنية، وضبط الميزانية.",
             "Open Framework": "استعرض الإطار",
             "SLA-based issue triage, escalation process, lifecycle structure, and operational response matrix for critical project blockers.": "آلية لفرز المشكلات وفق اتفاقيات مستوى الخدمة، ومسار واضح للتصعيد والمعالجة، ومصفوفة استجابة للعوائق الحرجة في المشروع.",
             "Risk identification, probability-impact scoring, response planning, and lifecycle monitoring to protect time, cost, and delivery quality.": "منهجية لتحديد المخاطر وتقييم احتمالية وقوعها وأثرها، والتخطيط للاستجابة لها ومتابعتها لحماية الوقت والتكلفة وجودة التنفيذ.",
-            "Enterprise Implementation Governance": "حوكمة تنفيذ المشاريع المؤسسية",
-            "Single-file HTML • Responsive • Print-friendly": "ملف HTML مستقل • متجاوب • مناسب للطباعة"
+            "Proactive Risk Management": "إدارة المخاطر الاستباقية",
+            "Open Framework": "استعرض الإطار"
         },
         change: {
             "Change Management Framework": "إطار إدارة التغيير",
