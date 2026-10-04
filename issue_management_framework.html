@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Management Framework | Implementation Methodology</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; /* Deep Blue */
+            --secondary: #3b82f6; /* Blue */
+            --accent: #f59e0b; /* Amber */
+            --text-main: #1f2937;
+            --bg-main: #f3f4f6;
+            --bg-card: #ffffff;
+            --border: #e5e7eb;
+            --critical: #ef4444;
+            --high: #f97316;
+            --medium: #eab308;
+            --low: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+        
+        body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 3rem 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; opacity: 0.9; }
+
+        .card { background: var(--bg-card); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid var(--border); }
+        .card h2 { color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background-color: #f8fafc; font-weight: 600; color: var(--primary); }
+        tr:hover { background-color: #f8fafc; }
+
+        .badge { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; color: white; }
+        .badge.critical { background-color: var(--critical); }
+        .badge.high { background-color: var(--high); }
+        .badge.medium { background-color: var(--medium); }
+        .badge.low { background-color: var(--low); }
+
+        .workflow { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+        .step { display: flex; align-items: flex-start; background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--secondary); }
+        .step-number { background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; margin-right: 1rem; }
+        .step-content h3 { margin-bottom: 0.5rem; color: var(--primary); }
+
+        .scenario-box { background: #eff6ff; border-left: 4px solid var(--secondary); padding: 1.5rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0; }
+        .scenario-box h4 { color: var(--primary); margin-bottom: 0.5rem; }
+
+        @media (min-width: 768px) {
+            .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media print {
+            body { background: white; }
+            .container { padding: 0; }
+            .card { box-shadow: none; border: none; break-inside: avoid; }
+            header { background: white; color: black; border-bottom: 2px solid black; padding: 1rem 0; box-shadow: none; }
+            .badge { border: 1px solid black; color: black; background: transparent !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Issue Management Framework</h1>
+            <p>Systematic Issue Resolution | Standard Implementation Methodology</p>
+        </header>
+
+        <div class="card">
+            <h2>1. Overview & Objectives</h2>
+            <p>While risks are potential future events, <strong>issues are realities currently impacting the project</strong>. This framework establishes clear Service Level Agreements (SLAs), strict escalation paths, and categorized routing to ensure the implementation team and client stakeholders resolve roadblocks rapidly—especially during critical phases like Data Migration and UAT—without threatening the project timeline.</p>
+        </div>
+
+        <div class="card">
+            <h2>2. Issue Classification & Service Level Agreements (SLAs)</h2>
+            <p>To ensure alignment between Client Process Owners and the Implementation Team, issues must be categorized and prioritized upon submission.</p>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Definition (System Context)</th>
+                            <th>Target Response</th>
+                            <th>Target Resolution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge critical">Critical</span></td>
+                            <td>System down (Go-Live phase), complete halt of UAT, or major financial data corruption. Prevents core project progress.</td>
+                            <td>4 Hours</td>
+                            <td>24 Hours (Requires RCA)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge high">High</span></td>
+                            <td>Major module (e.g., Procurement) workflow broken, severely impacting critical deliverables. No workaround exists.</td>
+                            <td>8 Hours</td>
+                            <td>3 Working Days</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge medium">Medium</span></td>
+                            <td>Sub-component defect, minor report formatting issue, or manageable data mapping error. Workaround available.</td>
+                            <td>24 Hours</td>
+                            <td>10 Working Days</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge low">Low</span></td>
+                            <td>Cosmetic UI issues, non-critical translation updates, or future enhancement requests.</td>
+                            <td>48 Hours</td>
+                            <td>Best Effort (Next Sprint)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. The Issue Lifecycle Workflow</h2>
+            <div class="workflow">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Identification & Logging (Status: Received)</h3>
+                        <p>Any project team member (e.g., Client Key Users) identifies an issue and logs it in the centralized Project Issue Tracker. Must include: Category (Technical, Functional, Data), Steps to Reproduce, and tentative Priority.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Triage & Assignment (Status: Open)</h3>
+                        <p>The Project Management Team reviews the issue within the Response Target, validates the priority, and assigns an Issue Owner (e.g., Lead Functional Consultant, Client IT Lead).</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-content">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                            <div class="step-number" style="margin-right: 1rem;">3</div>
+                            <h3>Analysis & Remediation (Status: In Progress)</h3>
+                        </div>
+                        <p>The Issue Owner implements a fix. If the fix requires modifying the overall scope or budget, the issue pauses here and formally triggers the <strong>Change Management Process</strong>.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Validation (Status: Waiting Approval)</h3>
+                        <p>The originator or relevant Client Process Owner tests the resolution in the Staging/UAT environment to ensure it meets business requirements.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Closure (Status: Resolved)</h3>
+                        <p>Formal approval is recorded. For Critical issues, a brief Root Cause Analysis (RCA) is appended to the log to prevent recurrence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h2>4. Escalation Matrix</h2>
+                <p>If SLA targets are breached, the following automated escalation path applies:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li><strong>1 Day Overdue:</strong> Alert to designated Issue Owner and Project Managers.</li>
+                    <li><strong>3 Days Overdue:</strong> Escalated to Joint PM Team & relevant Client Process Owners.</li>
+                    <li><strong>5 Days Overdue:</strong> Escalated to Implementation Vendor Operational Leadership.</li>
+                    <li><strong>10+ Days Overdue:</strong> Escalated to the Steering Committee / Project Sponsors for executive intervention.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>5. Roles & Responsibilities</h2>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li><strong>Originator (Key Users):</strong> Clearly document the issue with evidence (screenshots, expected vs actual results).</li>
+                    <li><strong>Project Managers:</strong> Triage, assign, and monitor issue health. Run weekly issue review meetings.</li>
+                    <li><strong>Issue Owner:</strong> Resolve within SLA, provide daily updates on High/Critical issues.</li>
+                    <li><strong>Steering Committee:</strong> Unblock resources or make executive decisions for escalated issues.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>6. Real-World Implementation Scenarios</h2>
+            
+            <div class="scenario-box">
+                <h4>Scenario A: Data Migration Mismatch</h4>
+                <p><strong>Issue:</strong> During the data migration phase, opening balances provided by the Client Finance team do not map correctly to the new Chart of Accounts.</p>
+                <p><strong>Action:</strong> Logged as <em>High Priority</em> (Functional/Data). Assigned jointly to the Client Finance Lead and the Lead Consultant to resolve mapping logic within 3 days to prevent UAT delays.</p>
+            </div>
+
+            <div class="scenario-box">
+                <h4>Scenario B: Key User Unavailable for UAT</h4>
+                <p><strong>Issue:</strong> The primary Procurement Key User is on unexpected leave during the critical UAT week.</p>
+                <p><strong>Action:</strong> Logged as <em>High Priority</em> (Resource). Escalated immediately to the Client Project Sponsor to assign a proxy user to prevent schedule slippage.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
