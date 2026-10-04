@@ -35,6 +35,28 @@
       padding: 32px 20px 60px;
     }
 
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 18px;
+      margin-bottom: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .brand img { display: block; width: 220px; max-width: 40vw; height: auto; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+    .nav-links a { color: var(--primary); font-weight: 700; text-decoration: none; }
+    .nav-links a:hover { color: var(--secondary); text-decoration: underline; }
+    .arabic { display: block; direction: rtl; font-family: Tahoma, Arial, sans-serif; }
+    .hero h1 .arabic { margin-top: 8px; font-size: 0.72em; }
+    .card h2 .arabic { margin-top: 4px; font-size: 0.8em; font-weight: 600; }
+    .arabic-copy { margin-top: 10px !important; }
+    .btn .arabic { margin-top: 2px; font-size: 0.9em; }
+
     .hero {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
@@ -166,6 +188,9 @@
     }
 
     @media (max-width: 640px) {
+      .site-nav { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 8px 16px; }
+
       .hero {
         padding: 38px 22px;
       }
@@ -178,49 +203,64 @@
 </head>
 <body>
   <div class="container">
+    <nav class="site-nav" aria-label="التنقل الرئيسي">
+      <a class="brand" href="index.html" aria-label="Scando Integrated Solutions">
+        <img src="Scando.png" alt="Scando Integrated Solutions" />
+      </a>
+      <div class="nav-links" dir="rtl">
+        <a href="index.html" lang="ar">الرئيسية</a>
+        <a href="change_management_framework.html" lang="ar">إدارة التغيير</a>
+        <a href="issue_management_framework.html" lang="ar">إدارة المشكلات</a>
+        <a href="risk_management_framework.html" lang="ar">إدارة المخاطر</a>
+      </div>
+    </nav>
     <header class="hero">
-      <h1>Project Governance Frameworks</h1>
+      <h1>Project Governance Frameworks<span class="arabic" lang="ar">أطر حوكمة المشاريع</span></h1>
       <p>
         Practical, responsive, and implementation-ready governance templates designed for enterprise projects,
         transformation initiatives, ERP rollouts, CRM programs, and complex delivery environments.
       </p>
+      <p class="arabic arabic-copy" lang="ar">قوالب حوكمة عملية ومتجاوبة وجاهزة للتطبيق، مصممة لمشاريع المؤسسات ومبادرات التحول وتطبيقات تخطيط موارد المؤسسات وإدارة علاقات العملاء وبيئات التنفيذ المعقدة.</p>
     </header>
 
     <main class="grid">
       <section class="card">
         <div class="icon">↻</div>
-        <h2>Change Management</h2>
+        <h2>Change Management<span class="arabic" lang="ar">إدارة التغيير</span></h2>
         <p>
           Standardized workflow for handling scope changes, impact assessments, approvals, schedule updates,
           and budget control.
         </p>
-        <a class="btn primary" href="change_management_framework.html">Open Framework</a>
+        <p class="arabic arabic-copy" lang="ar">سير عمل موحد لمعالجة تغييرات النطاق وتقييم الأثر والموافقات وتحديث الجداول الزمنية وضبط الميزانية.</p>
+        <a class="btn primary" href="change_management_framework.html">Open Framework<span class="arabic" lang="ar">فتح الإطار</span></a>
       </section>
 
       <section class="card">
         <div class="icon">⚠</div>
-        <h2>Issue Management</h2>
+        <h2>Issue Management<span class="arabic" lang="ar">إدارة المشكلات</span></h2>
         <p>
           SLA-based issue triage, escalation process, lifecycle structure, and operational response matrix for
           critical project blockers.
         </p>
-        <a class="btn secondary" href="issue_management_framework.html">Open Framework</a>
+        <p class="arabic arabic-copy" lang="ar">فرز للمشكلات وفق اتفاقيات مستوى الخدمة، ومسار للتصعيد، ومراحل واضحة للمعالجة، ومصفوفة استجابة للعوائق الحرجة.</p>
+        <a class="btn secondary" href="issue_management_framework.html">Open Framework<span class="arabic" lang="ar">فتح الإطار</span></a>
       </section>
 
       <section class="card">
         <div class="icon">◎</div>
-        <h2>Risk Management</h2>
+        <h2>Risk Management<span class="arabic" lang="ar">إدارة المخاطر</span></h2>
         <p>
           Risk identification, probability-impact scoring, response planning, and lifecycle monitoring to protect
           time, cost, and delivery quality.
         </p>
-        <a class="btn dark" href="risk_management_framework.html">Open Framework</a>
+        <p class="arabic arabic-copy" lang="ar">تحديد المخاطر وتقييم احتمالية وقوعها وأثرها، والتخطيط للاستجابة لها ومتابعتها لحماية الوقت والتكلفة وجودة التسليم.</p>
+        <a class="btn dark" href="risk_management_framework.html">Open Framework<span class="arabic" lang="ar">فتح الإطار</span></a>
       </section>
     </main>
 
     <div class="meta">
-      <small>Enterprise Implementation Governance</small>
-      <small>Single-file HTML • Responsive • Print-friendly</small>
+      <small>Enterprise Implementation Governance<br><span class="arabic" lang="ar">حوكمة تنفيذ المشاريع المؤسسية</span></small>
+      <small>Single-file HTML • Responsive • Print-friendly<br><span class="arabic" lang="ar">ملف HTML مستقل • متجاوب • مناسب للطباعة</span></small>
     </div>
   </div>
 </body>
